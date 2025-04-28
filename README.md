@@ -9,9 +9,22 @@ Write a C program to convert a 23.65 into 25 using pointer
 4.	Print the modified value.
 
 ## PROGRAM:
+```
+#include <stdio.h>
 
+int main() {
+    float num = 23.65;   
+    float *ptr = &num;   
+    printf("Before: %.2f\n", *ptr);
+
+    *ptr = 25.0;         
+    printf("After: %.2f\n", *ptr);
+    return 0;
+}
+```
 ## OUTPUT:
- 	
+![Screenshot 2025-04-28 183608](https://github.com/user-attachments/assets/5c0de1d0-7396-48c6-a53f-af8e0fcce6fa)
+
 
 
 
@@ -45,7 +58,22 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+```
+#include <stdio.h>
+
+int product(int n) {
+    if (n == 1)
+        return 1;
+    return n * product(n - 1);
+}
+
+int main() {
+    printf("%d", product(12));
+    return 0;
+}
+```
 ## OUTPUT:
+![Screenshot 2025-04-28 183613](https://github.com/user-attachments/assets/2c210caa-4224-4a9d-88d7-49cd44afa657)
          		
 ## RESULT:
 
@@ -68,11 +96,34 @@ Write C Program to find Sum of each row of a Matrix
 4.	Print the sum for each row.
 
 ## PROGRAM:
-
+```
+#include <stdio.h>
+int main() {
+    int rows, cols;
+    printf("Enter number of rows and columns: ");
+    scanf("%d %d", &rows, &cols);
+    int matrix[10][10]; 
+    printf("Enter elements of the matrix:\n");
+    for(int i = 0; i < rows; i++) {
+        for(int j = 0; j < cols; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    for(int i = 0; i < rows; i++) {
+        int sum = 0;
+        for(int j = 0; j < cols; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Sum of row %d = %d\n", i + 1, sum);
+    }
+    return 0;
+}
+```
 
 
 ## OUTPUT
 
+![Screenshot 2025-04-28 183619](https://github.com/user-attachments/assets/3610e978-86d8-49f8-b905-d98a7d51d623)
 
  
  
@@ -96,9 +147,28 @@ Write C program for the below pyramid string pattern. Enter a string: PROGRAM En
 5.	End the program.
 
 ## PROGRAM:
-
-
+```
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100];
+    int rows;
+    printf("Enter a string: ");
+    scanf("%s", str);
+    printf("Enter number of rows: ");
+    scanf("%d", &rows);
+    int len = strlen(str);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < len; j++) {
+            printf("%c ", str[j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
  ## OUTPUT
+![Screenshot 2025-04-28 183625](https://github.com/user-attachments/assets/866a2878-0c53-46e6-9bc9-d475f23c8b17)
 
  
 
@@ -132,8 +202,26 @@ Step 5: Loop from i = 0 to i < n:
 Step 6: End the program.
 
 ## PROGRAM
+```
+#include <stdio.h>
 
+int main() {
+    int arr[6];
+    int *ptr = arr;
+    printf("Enter 6 integers:\n");
+    for(int i = 0; i < 6; i++) {
+        scanf("%d", (ptr + i)); 
+    }
+    printf("The array elements are:\n");
+    for(int i = 0; i < 6; i++) {
+        printf("%d ", *(ptr + i)); 
+    }
+
+    return 0;
+}
+```
 ## OUTPUT
+![Screenshot 2025-04-28 183630](https://github.com/user-attachments/assets/50bd7d81-0db4-4af9-8fa7-8b06ccfb10a2)
 
  
 
